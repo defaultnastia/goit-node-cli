@@ -11,6 +11,7 @@ const rewriteContacts = async (newContacts) => {
 
 export async function listContacts() {
   const allContacts = await fs.readFile(contactsPath);
+
   return JSON.parse(allContacts);
 }
 
@@ -28,12 +29,12 @@ export async function removeContact(contactId) {
   if (index === -1) return null;
 
   const deletedContact = contacts.splice(index, 1);
-
   await rewriteContacts(contacts);
+
   return deletedContact;
 }
 
-export async function addContact(name, email, phone) {
+export async function addContact({ name, email, phone }) {
   const contacts = await listContacts();
   const newContact = {
     id: uuidv4(),

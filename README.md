@@ -1,3 +1,3 @@
 # goit-node-cli
 
-homework for module#1 in Node.js section
+A console application to manage the contacts list: read, add and remove.
